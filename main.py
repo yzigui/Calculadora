@@ -2,11 +2,6 @@ import os
 import time
 
 def calculadora(num1: float, num2: float, operador: str) -> float:
-    """
-    Usar nan como valor inicial é uma boa prática. 
-    Se o operador fornecido não corresponder a nenhuma das opções válidas (+, -, etc.), a função retornará nan, 
-    sinalizando que o cálculo não pôde ser realizado.
-    """
     result = float("nan")
 
     if operador == '+':
@@ -31,8 +26,24 @@ if __name__ == "__main__":
         os.system('cls' if os.name == 'nt' else 'clear')
         try:
             print('Calculadora')
+            print('----------------------------------')
+            print('+  Soma')
+            print('-  Subtração')
+            print('*  Multiplicação')
+            print('/  Divisão')
+            print('** Exponenciação')
+            print('%  Módulo')
             print('----------------------------------\n')
 
+            num1 = float(input('Digite o primeiro número: '))
+            num2 = float(input('Digite o segundo número: '))
+            operador = input('Digite a operação: ')
+
+            resultado = calculadora(num1, num2, operador)
+
+            print(f'\nResultado: {resultado}')
+
+            input('\nPrima Enter para continuar...')
 
         except ValueError:
             print('Dados inválidos! -> Tente novamente!')
@@ -41,5 +52,3 @@ if __name__ == "__main__":
         except ZeroDivisionError:
             print('Impossível dividir por zero! -> Tente novamente!')
             time.sleep(2)
-
-    print('\nVolte sempre!\n')
