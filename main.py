@@ -24,6 +24,7 @@ if __name__ == "__main__":
 
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
+
         try:
             print('Calculadora')
             print('----------------------------------')
@@ -43,7 +44,10 @@ if __name__ == "__main__":
 
             print(f'\nResultado: {resultado}')
 
-            input('\nPrima Enter para continuar...')
+            continuar = input('\nDeseja realizar outra operação? (s/n): ')
+
+            if continuar.lower() != 's':
+                break
 
         except ValueError:
             print('Dados inválidos! -> Tente novamente!')
@@ -52,3 +56,5 @@ if __name__ == "__main__":
         except ZeroDivisionError:
             print('Impossível dividir por zero! -> Tente novamente!')
             time.sleep(2)
+
+    print('\nVolte sempre!\n')
